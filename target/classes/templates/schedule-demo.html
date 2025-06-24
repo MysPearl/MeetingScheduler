@@ -6,11 +6,32 @@
 </head>
 <body>
 <h1>Schedule a Meeting</h1>
-<form th:action="@{/meetings}" method="post" th:object="${meeting}">
+
+<form th:action="@{/meetings/submit}" method="post" th:object="${meeting}">
   <label>Title: <input type="text" th:field="*{title}" /></label><br>
   <label>Start Time: <input type="datetime-local" th:field="*{startTime}" /></label><br>
   <label>End Time: <input type="datetime-local" th:field="*{endTime}" /></label><br>
+
+  <label>Attendees (comma-separated):</label><br>
+  <input type="text" name="attendeesInput"><br><br>
+
   <button type="submit">Schedule</button>
 </form>
+
+<h2 th:if="${status}" th:text="${status}"></h2>
+
+<h2>Scheduled Meetings</h2>
+<ul th:if="${meetings}">
+  <li th:each="m : ${meetings}">
+    <strong th:text="${m.title}"></strong><br>
+    <span th:text="${#temporals.format(m.startTime, 'yyyy-MM-dd HH:mm')}"></span> -
+    <span th:text="${#temporals.format(m.endTime, 'yyyy-MM-dd HH:mm')}"></span><br>
+    <em>Attendees:</em>
+    <ul>
+      <li th:each="a : ${m.attendees}" th:text="${a}"></li>
+    </ul>
+    <hr>
+  </li>
+</ul>
 </body>
 </html>
