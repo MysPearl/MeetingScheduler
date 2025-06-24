@@ -1,6 +1,6 @@
 # 🗓️ Meeting Scheduler Java Library
 
-This Java library provides a simple yet functional meeting scheduling service, built using Spring Boot. It allows users to create and view meetings, with conflict detection and attendee tracking included. A small UI demo is also included for demonstration and testing purposes.
+This Java library provides a simple yet functional meeting scheduling service. It allows users to create and view meetings, with conflict detection and simple attendee tracking included. A small UI demo is also included for demonstration and testing purposes.
 
 ---
 
