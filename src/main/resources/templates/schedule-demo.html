@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Schedule a Meeting</title>
+</head>
+<body>
+<h1>Schedule a Meeting</h1>
+<form th:action="@{/meetings}" method="post" th:object="${meeting}">
+  <label>Title: <input type="text" th:field="*{title}" /></label><br>
+  <label>Start Time: <input type="datetime-local" th:field="*{startTime}" /></label><br>
+  <label>End Time: <input type="datetime-local" th:field="*{endTime}" /></label><br>
+  <button type="submit">Schedule</button>
+</form>
+</body>
+</html>
